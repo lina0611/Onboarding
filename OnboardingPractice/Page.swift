@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Model object used to display UI
 struct Page {
     let imageName: String
     let headerText: String

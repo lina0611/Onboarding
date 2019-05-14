@@ -17,9 +17,7 @@ class CategoryViewController: UIViewController {
     }
 
     @objc func handleBakcButton() {
-        guard let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController")as? LoginViewController else {
-            return
-        }
+        guard let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController")as? LoginViewController else { return }
         self.present(loginViewController, animated: true, completion: nil)
     }
 }
