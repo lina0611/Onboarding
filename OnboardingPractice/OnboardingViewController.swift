@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OnboardingViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class OnboardingViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var nextButton: UIButton!
@@ -35,7 +35,7 @@ class OnboardingViewController: UIViewController, UICollectionViewDelegate, UICo
         showControlStackView()
     }
 
-    @IBAction func tapNextButton(_ sender: Any) {
+    @IBAction private func tapNextButton(_ sender: Any) {
         let nextIndex = min(pageControl.currentPage + 1, pages.count - 1)
         let indexPath = IndexPath(item: nextIndex, section: 0)
         pageControl.currentPage = nextIndex
@@ -43,18 +43,13 @@ class OnboardingViewController: UIViewController, UICollectionViewDelegate, UICo
         updateControlUI()
     }
     
-    @IBAction func tapSkipButton(_ sender: Any) {
-        guard let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController")as? LoginViewController else {
-            return
-        }
-        
+    @IBAction private func tapSkipButton(_ sender: Any) {
+        guard let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController")as? LoginViewController else { return }
         self.present(loginViewController, animated: true, completion: nil)
     }
 
-    @IBAction func tapGetStartedButton(_ sender: Any) {
-        guard let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController")as? LoginViewController else {
-            return
-        }
+    @IBAction private func tapGetStartedButton(_ sender: Any) {
+        guard let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController")as? LoginViewController else { return }
         self.present(loginViewController, animated: true, completion: nil)
     }
 
@@ -78,7 +73,7 @@ class OnboardingViewController: UIViewController, UICollectionViewDelegate, UICo
         self.view.bringSubviewToFront(getStartedButton)
     }
 
-    func setupPageControl() {
+    private func setupPageControl() {
         view.addSubview(pageControl)
         pageControl.translatesAutoresizingMaskIntoConstraints = false
         pageControl.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width).isActive = true
@@ -86,6 +81,9 @@ class OnboardingViewController: UIViewController, UICollectionViewDelegate, UICo
         pageControl.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         pageControl.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -140).isActive = true
     }
+}
+
+extension OnboardingViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
@@ -100,9 +98,16 @@ class OnboardingViewController: UIViewController, UICollectionViewDelegate, UICo
         cell.configue(page: pages[indexPath.item])
         return cell
     }
+}
 
+extension OnboardingViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.width, height: view.frame.height)
     }
 
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        let x = targetContentOffset.pointee.x
+        pageControl.currentPage = Int(x / view.frame.width)
+        updateControlUI()
+    }
 }

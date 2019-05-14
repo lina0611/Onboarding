@@ -12,20 +12,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-
     @IBOutlet weak var backButton: UIBarButtonItem!
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
-    @IBAction func tapLoginButton(_ sender: Any) {
+    @IBAction private func tapLoginButton(_ sender: Any) {
         let categoryVC = self.storyboard?.instantiateViewController(withIdentifier: "CategoryViewController")as! CategoryViewController
         let navigationVC = UINavigationController(rootViewController: categoryVC)
 
         present(navigationVC, animated: true, completion: nil)
     }
  
-    @IBAction func tapBackButton(_ sender: Any) {
+    @IBAction private func tapBackButton(_ sender: Any) {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
