@@ -10,10 +10,15 @@ import UIKit
 
 class PageCell: UICollectionViewCell {
     
-    @IBOutlet weak var headerTextView: UITextView!
-    @IBOutlet weak var bodyTextView: UITextView!
-    @IBOutlet weak var descriptionTextView: UITextView!
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet private weak var headerTextView: UITextView!
+    @IBOutlet private weak var bodyTextView: UITextView!
+    @IBOutlet private weak var descriptionTextView: UITextView!
+    @IBOutlet private weak var imageView: UIImageView!
 
-    
+    func configue(page: Page) {
+        imageView.image = UIImage(named: page.imageName)
+        headerTextView.text = page.headerText
+        bodyTextView.text = page.bodyText
+        descriptionTextView.text = page.description
+    }
 }

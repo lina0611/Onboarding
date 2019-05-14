@@ -12,6 +12,10 @@ class OnboardingViewController: UIViewController, UICollectionViewDelegate, UICo
 
     @IBOutlet weak var collectionView: UICollectionView!
 
+    let pages = [Page(imageName: "onboarding1", headerText: "Create an account", bodyText: "Connect with people around the world", description: "User will be able to go live, chat and meet with people near by."),
+                 Page(imageName: "onboarding2", headerText: "Log in to your account", bodyText: "Let's build connection with new people", description: "Connect helps you locate the people around you who are closest from your home town!"),
+                 Page(imageName: "onboarding3", headerText: "Log in to your account", bodyText: "Feel the happiness", description: "User will be able to go live, chat and meet with people near by.")]
+
     override func viewDidLoad() {
         super.viewDidLoad()
 //        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cellId")
@@ -22,12 +26,13 @@ class OnboardingViewController: UIViewController, UICollectionViewDelegate, UICo
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return pages.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PageCell", for: indexPath) as! PageCell
 
+        cell.configue(page: pages[indexPath.item])
         return cell
     }
 
