@@ -12,5 +12,14 @@ class CategoryViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(handleBakcButton))
+        self.navigationItem.title = "Category"
+    }
+
+    @objc func handleBakcButton() {
+        guard let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController")as? LoginViewController else {
+            return
+        }
+        self.present(loginViewController, animated: true, completion: nil)
     }
 }

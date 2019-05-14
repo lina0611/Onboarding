@@ -14,7 +14,8 @@ class OnboardingViewController: UIViewController, UICollectionViewDelegate, UICo
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var skipButton: UIButton!
     @IBOutlet weak var getStartedButton: UIButton!
-    
+    @IBOutlet weak var controlStackView: UIStackView!
+
     private lazy var pageControl: UIPageControl = {
         let pc = UIPageControl()
         pc.currentPage = 0
@@ -31,7 +32,7 @@ class OnboardingViewController: UIViewController, UICollectionViewDelegate, UICo
     override func viewDidLoad() {
         super.viewDidLoad()
         setupPageControl()
-        getStartedButton.isHidden = true
+        showControlStackView()
     }
 
     @IBAction func tapNextButton(_ sender: Any) {
@@ -39,23 +40,42 @@ class OnboardingViewController: UIViewController, UICollectionViewDelegate, UICo
         let indexPath = IndexPath(item: nextIndex, section: 0)
         pageControl.currentPage = nextIndex
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        updateControlUI()
     }
     
     @IBAction func tapSkipButton(_ sender: Any) {
+        guard let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController")as? LoginViewController else {
+            return
+        }
+        
+        self.present(loginViewController, animated: true, completion: nil)
     }
 
     @IBAction func tapGetStartedButton(_ sender: Any) {
-
+        guard let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController")as? LoginViewController else {
+            return
+        }
+        self.present(loginViewController, animated: true, completion: nil)
     }
 
-    func updateNextBtnStatus() {
+    private func updateControlUI() {
         if pageControl.currentPage == pages.count - 1 {
-            getStartedButton.isHidden = false
-            nextButton.isHidden = true
-            skipButton.isHidden = true
+            showStartButton()
         } else {
-            getStartedButton.isHidden = true
+            showControlStackView()
         }
+    }
+
+    private func showControlStackView() {
+        getStartedButton.isHidden = true
+        controlStackView.isHidden = false
+        self.view.bringSubviewToFront(controlStackView)
+    }
+
+    private func showStartButton() {
+        getStartedButton.isHidden = false
+        controlStackView.isHidden = true
+        self.view.bringSubviewToFront(getStartedButton)
     }
 
     func setupPageControl() {

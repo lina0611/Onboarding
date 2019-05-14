@@ -99,11 +99,23 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="taK-sT-VPz"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VjS-cV-bNx">
+                                <rect key="frame" x="103" y="772" width="208" height="50"/>
+                                <color key="backgroundColor" red="0.40000000000000002" green="0.20000000000000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="GET STARTED">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="tapGetStartedButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aDJ-wm-HtA"/>
+                                </connections>
+                            </button>
                             <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="PnQ-vM-pwY">
                                 <rect key="frame" x="0.0" y="772" width="414" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cvW-Jl-mqq">
-                                        <rect key="frame" x="0.0" y="0.0" width="138" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="207" height="50"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="SKIP">
                                             <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -112,19 +124,8 @@
                                             <action selector="tapSkipButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="x2P-9Q-Gnl"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VjS-cV-bNx">
-                                        <rect key="frame" x="138" y="0.0" width="138" height="50"/>
-                                        <color key="backgroundColor" red="0.40000000000000002" green="0.20000000000000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="GET STARTED">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="tapGetStartedButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aDJ-wm-HtA"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AzT-8c-PnU">
-                                        <rect key="frame" x="276" y="0.0" width="138" height="50"/>
+                                        <rect key="frame" x="207" y="0.0" width="207" height="50"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="NEXT">
@@ -145,7 +146,11 @@
                             <constraint firstItem="PnQ-vM-pwY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="4sS-NT-Qai"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PnQ-vM-pwY" secondAttribute="trailing" id="6U1-F0-PaN"/>
                             <constraint firstItem="23O-dJ-4bT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="7iy-NM-96k"/>
+                            <constraint firstItem="VjS-cV-bNx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="S4N-59-m8J"/>
+                            <constraint firstItem="VjS-cV-bNx" firstAttribute="height" secondItem="PnQ-vM-pwY" secondAttribute="height" id="SNg-wa-cMa"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="23O-dJ-4bT" secondAttribute="bottom" constant="190" id="Xj4-nx-XUr"/>
+                            <constraint firstItem="VjS-cV-bNx" firstAttribute="centerY" secondItem="PnQ-vM-pwY" secondAttribute="centerY" id="YlR-BD-inj"/>
+                            <constraint firstItem="VjS-cV-bNx" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" constant="1" id="ZjO-KC-OBA"/>
                             <constraint firstItem="23O-dJ-4bT" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="bg9-1d-Prw"/>
                             <constraint firstItem="23O-dJ-4bT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="oHf-4u-1qW"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="PnQ-vM-pwY" secondAttribute="bottom" constant="40" id="yIk-p1-xmf"/>
@@ -154,14 +159,15 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="23O-dJ-4bT" id="5DB-eK-HqP"/>
-                        <outlet property="getStartedButton" destination="VjS-cV-bNx" id="zgR-eX-oVY"/>
+                        <outlet property="controlStackView" destination="PnQ-vM-pwY" id="DEr-B3-Yam"/>
+                        <outlet property="getStartedButton" destination="VjS-cV-bNx" id="cE9-pz-rVM"/>
                         <outlet property="nextButton" destination="AzT-8c-PnU" id="kvc-r1-nzl"/>
                         <outlet property="skipButton" destination="cvW-Jl-mqq" id="clE-5i-46n"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-968" y="212"/>
+            <point key="canvasLocation" x="-968.11594202898561" y="211.60714285714286"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="TFr-4k-jP7">
@@ -172,7 +178,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign In" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J2A-Fq-0LX">
-                                <rect key="frame" x="35" y="148" width="95" height="60"/>
+                                <rect key="frame" x="35" y="148" width="344" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="t3R-BC-Sgj"/>
                                 </constraints>
@@ -225,13 +231,20 @@
                             <constraint firstItem="WCS-6M-ntp" firstAttribute="leading" secondItem="X8p-46-rO5" secondAttribute="leading" constant="35" id="d23-uH-E7U"/>
                             <constraint firstItem="WCS-6M-ntp" firstAttribute="top" secondItem="Ojc-w1-dTO" secondAttribute="bottom" constant="65" id="nm9-15-PWa"/>
                             <constraint firstItem="Ojc-w1-dTO" firstAttribute="leading" secondItem="X8p-46-rO5" secondAttribute="leading" constant="35" id="puy-U9-vMH"/>
+                            <constraint firstItem="X8p-46-rO5" firstAttribute="trailing" secondItem="J2A-Fq-0LX" secondAttribute="trailing" constant="35" id="ulX-xf-KkG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="X8p-46-rO5"/>
                     </view>
                     <navigationItem key="navigationItem" id="Jjk-Av-aM5">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="BAi-OA-7lc"/>
+                        <barButtonItem key="leftBarButtonItem" image="back_btn-1" id="C5D-uw-oZk">
+                            <color key="tintColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="tapBackButton:" destination="X6U-ku-InF" id="0Ay-8W-0Lh"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="backButton" destination="C5D-uw-oZk" id="saB-mZ-9Jh"/>
                         <outlet property="passwordTextField" destination="kBk-9h-AjG" id="9p4-4c-4jy"/>
                         <outlet property="usernameTextField" destination="guo-ma-lPp" id="RAc-9c-Y93"/>
                     </connections>
@@ -253,16 +266,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eO8-OA-2c5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1465" y="212"/>
+            <point key="canvasLocation" x="1703" y="212"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6xU-oU-xhY">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OGW-2x-HXW" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="navigationVC" automaticallyAdjustsScrollViewInsets="NO" id="OGW-2x-HXW" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Vtj-mD-8Ze">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -275,6 +290,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="back_btn-1" width="17" height="15"/>
         <image name="onboarding1" width="286" height="200"/>
     </resources>
 </document>
