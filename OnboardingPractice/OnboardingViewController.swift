@@ -11,6 +11,17 @@ import UIKit
 class OnboardingViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var skipButton: UIButton!
+
+    private lazy var pageControl: UIPageControl = {
+        let pc = UIPageControl()
+        pc.currentPage = 0
+        pc.numberOfPages = pages.count
+        pc.currentPageIndicatorTintColor = .blue
+        pc.pageIndicatorTintColor = .lightGray
+        return pc
+    }()
 
     let pages = [Page(imageName: "onboarding1", headerText: "Create an account", bodyText: "Connect with people around the world", description: "User will be able to go live, chat and meet with people near by."),
                  Page(imageName: "onboarding2", headerText: "Log in to your account", bodyText: "Let's build connection with new people", description: "Connect helps you locate the people around you who are closest from your home town!"),
@@ -18,9 +29,22 @@ class OnboardingViewController: UIViewController, UICollectionViewDelegate, UICo
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cellId")
+        setupPageControl()
     }
 
+    @IBAction func tapNextButton(_ sender: Any) {
+    }
+    @IBAction func tapSkipButton(_ sender: Any) {
+    }
+
+    func setupPageControl() {
+        view.addSubview(pageControl)
+        pageControl.translatesAutoresizingMaskIntoConstraints = false
+        pageControl.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width).isActive = true
+        pageControl.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        pageControl.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        pageControl.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -140).isActive = true
+    }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }

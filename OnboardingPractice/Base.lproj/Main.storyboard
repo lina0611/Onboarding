@@ -99,18 +99,49 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="taK-sT-VPz"/>
                                 </connections>
                             </collectionView>
+                            <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="PnQ-vM-pwY">
+                                <rect key="frame" x="0.0" y="772" width="414" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cvW-Jl-mqq">
+                                        <rect key="frame" x="0.0" y="0.0" width="207" height="50"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="SKIP">
+                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="tapSkipButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="x2P-9Q-Gnl"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AzT-8c-PnU">
+                                        <rect key="frame" x="207" y="0.0" width="207" height="50"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="NEXT"/>
+                                        <connections>
+                                            <action selector="tapNextButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ob1-rc-sUk"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="8K1-7d-uzr"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="PnQ-vM-pwY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="4sS-NT-Qai"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PnQ-vM-pwY" secondAttribute="trailing" id="6U1-F0-PaN"/>
                             <constraint firstItem="23O-dJ-4bT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="7iy-NM-96k"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="23O-dJ-4bT" secondAttribute="bottom" constant="190" id="Xj4-nx-XUr"/>
                             <constraint firstItem="23O-dJ-4bT" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="bg9-1d-Prw"/>
                             <constraint firstItem="23O-dJ-4bT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="oHf-4u-1qW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="PnQ-vM-pwY" secondAttribute="bottom" constant="40" id="yIk-p1-xmf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="23O-dJ-4bT" id="5DB-eK-HqP"/>
+                        <outlet property="nextButton" destination="AzT-8c-PnU" id="kvc-r1-nzl"/>
+                        <outlet property="skipButton" destination="cvW-Jl-mqq" id="clE-5i-46n"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
