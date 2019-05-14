@@ -15,6 +15,8 @@
 		3E44B7F7228B10C500BC360E /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E44B7F6228B10C500BC360E /* OnboardingViewController.swift */; };
 		3E44B7F9228B1B6300BC360E /* PageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E44B7F8228B1B6300BC360E /* PageCell.swift */; };
 		3E44B7FB228B23A000BC360E /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E44B7FA228B23A000BC360E /* Page.swift */; };
+		3E44B7FD228B399300BC360E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E44B7FC228B399300BC360E /* LoginViewController.swift */; };
+		3E44B7FF228B39CB00BC360E /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E44B7FE228B39CB00BC360E /* CategoryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		3E44B7F6228B10C500BC360E /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		3E44B7F8228B1B6300BC360E /* PageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCell.swift; sourceTree = "<group>"; };
 		3E44B7FA228B23A000BC360E /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
+		3E44B7FC228B399300BC360E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		3E44B7FE228B39CB00BC360E /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +73,8 @@
 				3E44B7F6228B10C500BC360E /* OnboardingViewController.swift */,
 				3E44B7F8228B1B6300BC360E /* PageCell.swift */,
 				3E44B7FA228B23A000BC360E /* Page.swift */,
+				3E44B7FC228B399300BC360E /* LoginViewController.swift */,
+				3E44B7FE228B39CB00BC360E /* CategoryViewController.swift */,
 			);
 			path = OnboardingPractice;
 			sourceTree = "<group>";
@@ -144,7 +150,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E44B7FD228B399300BC360E /* LoginViewController.swift in Sources */,
 				3E44B7E7228B0CB800BC360E /* ViewController.swift in Sources */,
+				3E44B7FF228B39CB00BC360E /* CategoryViewController.swift in Sources */,
 				3E44B7F7228B10C500BC360E /* OnboardingViewController.swift in Sources */,
 				3E44B7F9228B1B6300BC360E /* PageCell.swift in Sources */,
 				3E44B7E5228B0CB800BC360E /* AppDelegate.swift in Sources */,

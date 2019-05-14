@@ -13,7 +13,8 @@ class OnboardingViewController: UIViewController, UICollectionViewDelegate, UICo
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var skipButton: UIButton!
-
+    @IBOutlet weak var getStartedButton: UIButton!
+    
     private lazy var pageControl: UIPageControl = {
         let pc = UIPageControl()
         pc.currentPage = 0
@@ -30,11 +31,31 @@ class OnboardingViewController: UIViewController, UICollectionViewDelegate, UICo
     override func viewDidLoad() {
         super.viewDidLoad()
         setupPageControl()
+        getStartedButton.isHidden = true
     }
 
     @IBAction func tapNextButton(_ sender: Any) {
+        let nextIndex = min(pageControl.currentPage + 1, pages.count - 1)
+        let indexPath = IndexPath(item: nextIndex, section: 0)
+        pageControl.currentPage = nextIndex
+        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
+    
     @IBAction func tapSkipButton(_ sender: Any) {
+    }
+
+    @IBAction func tapGetStartedButton(_ sender: Any) {
+
+    }
+
+    func updateNextBtnStatus() {
+        if pageControl.currentPage == pages.count - 1 {
+            getStartedButton.isHidden = false
+            nextButton.isHidden = true
+            skipButton.isHidden = true
+        } else {
+            getStartedButton.isHidden = true
+        }
     }
 
     func setupPageControl() {
